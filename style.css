@@ -1,0 +1,437 @@
+/* Centrar los elementos dentro del overlay */
+.overlay1-content .centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Espaciado entre elementos */
+}
+
+  
+input {
+    width: 110%;
+    padding: 5px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+ .container1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: red;
+    color: white;
+    padding: 10px 300px;
+}
+.profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: auto; /* Agregar esta línea */
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Contenido del menú desplegable */
+.dropdown-content {
+    color: red;
+    display: none;
+    position: absolute;
+    background-color: black; /* Cambiar este color al que prefieras */
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: red; /* Cambiar el color del texto */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Mostrar el menú desplegable al pasar el mouse */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropbtn2 {
+  background-color: transparent;
+  color: red; /* Color de texto verde fosforescente */
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.dropdown-content2 {
+  display: none;
+  position: absolute;
+  background-color: black;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content2 a {
+  color: red;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content2 a:hover {
+  background-color: #f1f1f1; /* Color de fondo verde fosforescente al resaltar */
+  color: red; /* Color de texto blanco al resaltar */
+}
+
+.dropdown:hover .dropdown-content2 {
+  display: block;
+}
+
+ .ocultar-iframe {
+    display: none;
+  }
+
+.cont2 {
+  display: none;
+  width: 140px;
+  height: 35px;
+  background-color: transparent;
+  position: fixed;
+  top: 20px;
+  right: 20px; 
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+
+}
+  
+  
+  .ove {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: black;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: 999;
+}
+
+.ove-content {
+   background-color: rgba(0, 0, 0, 0.9); /* Cambiar el fondo a un negro más oscuro */
+   /* Otros estilos para el contenido del overlay */
+}
+
+/* Estilos para la animación de cambio de color */
+.animacion {
+   font-family: verdana;
+   font-size: 50px;
+   display: inline-block;
+   overflow: hidden;
+}
+
+.letra {
+   display: inline-block;
+   animation: cambio-color 2s infinite linear;
+}
+
+@keyframes cambio-color {
+   0% { color: #ff0000; } /* Rojo */
+   16.67% { color: #ff3333; } /* Rojo más claro */
+   33.33% { color: #ff6666; } /* Rojo más claro */
+   50% { color: #ff9999; } /* Rojo más claro */
+   66.67% { color: #ffcccc; } /* Rojo más claro */
+   83.33% { color: #ff0000; } /* Volver al rojo original */
+   100% { color: #ff0000; } /* Rojo original al final */
+}
+
+
+/* Estilos para la barra de carga */
+.loading-bar {
+   width: 100%;
+   height: 20px;
+   background-color: #000; /* Cambiar el color de fondo de la barra de carga a negro */
+   position: relative;
+}
+
+.progress-2 {
+   width: 0;
+   height: 100%;
+   background-color: #ff3333; /* Cambiar el color de la barra de progreso a verde lima */
+   position: absolute;
+   animation: fill-progress 3s infinite;
+}
+
+@keyframes fill-progress {
+   0% { width: 0; }
+   16.67% { width: 16.67%; background-color: #ff3333; } /* Rojo más claro */
+   33.33% { width: 33.33%; background-color: #ff6666; } /* Rojo más claro */
+   50% { width: 50%; background-color: #ff9999; } /* Rojo más claro */
+   66.67% { width: 66.67%; background-color: #ffcccc; } /* Rojo más claro */
+   83.33% { width: 83.33%; background-color: #ff0000; } /* Volver al rojo original */
+   100% { width: 100%; background-color: #ff0000; } /* Rojo original al final */
+}
+
+
+/*separador de cachp*/
+
+.con {
+    width: 280px;
+    height: 50px;
+    border: 2px solid red;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+  }
+
+.square {
+  width: 40px;
+  height: 45px;
+  background-color: transparent;
+  border: 2px solid red;
+  border-radius: 20%;
+  position: relative;
+  cursor: pointer; /* Añadido para indicar que es clickeable */
+}
+
+.checkmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 24px;
+  height: 24px;
+  stroke-width: 2;
+  stroke: green;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+@keyframes checkmarkAnimation {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+  .text {
+    text-align: center;
+  }
+  
+
+ .rounded-rectangle {
+    width: 250px;
+    height: 50px;
+    left: 25px; /* Mueve el rectángulo hacia la derecha */
+    top: 20px;
+    background-color: transparent; /* Fondo transparente */
+    border: 2px solid red; /* Borde gris */
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Sombra con desplazamiento */
+    position: relative; /* Agregamos posición relativa para utilizar left */
+  }
+
+.overlay1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+
+.overlay1-content {
+    text-align: center;
+    background-color: black;
+    padding: 250px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    border: 15px solid red;
+}
+
+  
+   .logo {
+      font-size: 10em;
+      font-family: 'Chiller', sans-serif;
+      color: red;
+      text-shadow: 4px 4px 6px #000;
+      text-align: center;
+      opacity: 0; /* Inicialmente, el texto está invisible */
+      animation: blood-fall 2s ease-out forwards; /* Animación de la aparición del texto */
+    }
+
+    @keyframes blood-fall {
+      0% {
+        transform: translateY(-100vh);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+   
+.rectangulo {
+  width: 800px; /* Ancho fijo */
+  border: 2px solid #333; /* Borde para visualizar el rectángulo */
+  border-radius: 20px; /* Bordes redondeados */
+  padding: 20px; /* Espacio interno dentro del rectángulo */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.9); /* Sombra */
+  margin: 50px auto 0 auto; /* Centrar automáticamente y agregar espacio arriba */
+  background-color: #fff; /* Color de fondo */
+}
+
+ 
+
+#resultados {
+  max-height: 300px; /* Altura máxima del contenedor */
+  overflow-y: auto; /* Activar desplazamiento vertical */
+  display: block; /* Convertir el tbody en un bloque para aplicar estilos */
+}
+  
+  
+   .progress-bar {
+      width: 100%;
+      height: 30px;
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .progress {
+      width: 0;
+      height: 100%;
+      background-color: #ff6666;
+      transition: width 1s ease-in-out;
+    }
+
+   /* Inicialmente, ocultamos el textarea */
+    #listaCorreos {
+      display: block;
+    }
+    .separador{
+      border: none;
+      height: 1px;
+      background-color: #ccc;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9); /* Agrega sombra al separador */
+    }
+  
+   #cantidad {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      width: 200px;
+      margin-bottom: 10px;
+      box-sizing: border-box; /* Incluye el padding en el ancho total */
+    }
+
+    #cantidad::placeholder {
+      color: #999; /* Color del texto de placeholder */
+    }
+  
+     /* Nuevos estilos para el contenedor de correos */
+  #contenedor-correos {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 0 auto;
+    margin: 0 auto;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    background-color: #f9f9f9;
+    max-height: 200px; /* Altura máxima del contenedor */
+    overflow-y: auto; /* Agrega barra de desplazamiento vertical si es necesario */
+  }
+  
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.social-icons img {
+  width: 40px; /* Ajusta el ancho según el tamaño de tus íconos */
+  height: 40px; /* Ajusta la altura según el tamaño de tus íconos */
+  border-radius: 50%; /* Hace que los íconos sean circulares */
+  border: 2px solid #333; /* Borde de 2px sólido de color gris oscuro (#333) */
+  padding: 5px; /* Opcional: agrega un poco de espacio alrededor de los íconos */
+  box-sizing: border-box; /* Hace que el padding no afecte el tamaño total */
+  transition: transform 0.3s ease-in-out; /* Animación al pasar el cursor */
+}
+
+.social-icons img:hover {
+  transform: scale(1.1); /* Cambia el tamaño al pasar el cursor */
+}
+
+        #cards, #console, #datos, #infos, .hh-title, .title {
+        text-align: center;
+      }
+
+      #datos, #infos, .Lbutton, .hh-title, p.boldy, p.boldy.info, p.boldy.main {
+        font-weight: 700;
+        color: limegreen;
+      }
+
+      .Lbutton, .Lbutton:hover {
+        background: linear-gradient(to bottom, var(--princi) 5%, var(--princi) 100%);
+        background-color: var(--princi);
+        color: var(--secund);
+      }
+
+      .hh-title, .title, footer {
+        font-family: var(--font-princi);
+        color: limegreen;
+      }
+
+      .Lbutton, footer, header {
+        color: var(--secund);
+      }
+
+      :root {
+        color-scheme: dark;
+        --princi: #212121; /* Fondo negro */
+        --secund: red; /* Color de borde y botones */
+        --label: #2b2b35;
+        --font-princi: "Orbitron", sans-serif;
+        --font-secund: "Poppins", sans-serif;
+        --rg1: rgba(93, 255, 98, 0.075);
+        --rg2: rgba(93, 255, 98, 1);
+        --info: #96d3f2;
+      }
