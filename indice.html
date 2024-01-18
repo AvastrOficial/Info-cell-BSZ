@@ -1,0 +1,221 @@
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+</head>
+<body>
+
+  
+  
+     
+ <div class="ove">
+         <div class="popup">
+           <div class="logo">BlackStrZ</div>
+            <div class="loading" ><div class="animacion">
+  <span class="letra">I</span>
+  <span class="letra">N</span>
+  <span class="letra">F</span>
+  <span class="letra">C</span>
+  <span class="letra">E</span>
+<span class="letra">L</span>
+<span class="letra">L</span>
+<span class="letra">-</span>
+<span class="letra">B</span>
+<span class="letra">S</span>
+<span class="letra">Z</span><div class="loading-bar">
+  <div class="progress-2"></div>
+    </div>
+              </div>
+            </div>
+         </div>
+    </div>
+  
+  
+  <div class="overlay1">
+        <div class="overlay1-content">
+            <h2>INGRESA LA LLAVE</h2>
+              <input type="password" id="passwordInput" placeholder="Ingresa el Password">
+          <h4>SI NO TIENES LA LLAVE  
+           <br>INGRESAR COMO INVITADO</br> 
+           <br>USA EL CAPCHAT</br>
+</h4>
+      <div class="con">
+  <div class="square">
+    <svg class="checkmark" viewBox="0 0 24 24">
+      <path d="M2 12l7 7 14-14" />
+    </svg>
+  </div>
+  <p class="text">Eres Un Robot? 
+        <p>
+          Preciona el cuadrado para verificar que eres un humano
+</p>
+</p>
+</div>
+          <footer>
+             <div class="rounded-rectangle">
+        <p>APPBSZ / &copy; vercion - 0.0.2</p>
+</div>
+            
+    </footer>
+        </div>
+    </div>
+  
+   
+  
+    <div class="container1">
+     <div class="profile">
+           <img  src="https://files.catbox.moe/q1rpqy.jpg" >
+     
+           <txt>ID DE USUARIO :<span class="username" id="userIP">Cargando</span></txt>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Menú</button>
+            <div class="dropdown-content">
+               <a href="https://appbsz.crearforo.net/h33-menu-red-social">Inicio</a>
+                <a href="https://appbsz.crearforo.net/h61-perfil">Perfil</a>
+                <a href="https://appbsz.crearforo.net/h38-chat-oline">Mensajes</a>
+                <a href="https://appbsz.crearforo.net/memberlist">Agrega mas amigos</a>
+              
+            </div>
+        </div>
+    </div>
+ <div class="dropdown">
+ <button class="dropbtn2"><i class="fas fa-cog"></i> HERRAMIENTAS DE BSZ</button>
+
+            <div class="dropdown-content2">
+               <a href="https://generadoraccountbsz.foroactivo.com/h3-scrap-bsz">SCRAP BSZ</a>
+               <a href="https://appbsz.crearforo.net/h45-geolocalizacion-bsz">GEOLOACLIZADOR BSZ</a>
+               <a href="https://appbsz.crearforo.net/h47-bsz-cheker">CHEKER CCS BSZ</a>
+               <a href="https://appbsz.crearforo.net/h72-bsz-ccgen">CCGEN BSZ</a>
+              <a href="https://appbsz.crearforo.net/h63-generador">GENERADOR HITS BSZ</a>
+            </div>
+        </div>
+    </div>
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  <h1>Información de Número de Teléfono - BSZ</h1>
+
+  <label for="numeroTelefono">Número de Teléfono:</label>
+  <input type="text" id="numeroTelefono" placeholder="Ingresa un número de teléfono">
+  <button onclick="buscarInformacion()">Buscar</button>
+
+  <div id="resultados"></div>
+
+  <script src="https://unpkg.com/libphonenumber-js/bundle/libphonenumber-js.min.js"></script>
+  <script>
+async function buscarInformacion() {
+  const numeroTelefonoInput = document.getElementById('numeroTelefono');
+  const resultadosDiv = document.getElementById('resultados');
+  const numeroTelefono = numeroTelefonoInput.value;
+
+  try {
+    const { parsePhoneNumberFromString } = libphonenumber;
+    const phoneNumber = parsePhoneNumberFromString(numeroTelefono);
+
+    if (phoneNumber && phoneNumber.isValid()) {
+      const {
+        countryCallingCode,
+        nationalNumber,
+        number,
+        isValid,
+        region,
+        timezones
+      } = phoneNumber;
+
+      // Obtener ubicación solo si latitud y longitud están disponibles
+      const ubicacion = (phoneNumber && phoneNumber.lat && phoneNumber.lng) ? await obtenerUbicacion(phoneNumber.lat, phoneNumber.lng) : '';
+
+      // Obtener el código de área (los primeros tres dígitos después del signo "+")
+      const codigoDeArea = nationalNumber.substring(countryCallingCode.length, countryCallingCode.length + 3);
+
+      // Realizar la búsqueda de información del código de área
+      const informacionCodigoArea = await buscarInformacionCodigoArea(codigoDeArea);
+
+      const resultado = `
+        <strong>Código de País:</strong> +${countryCallingCode || "No disponible"}<br>
+        <strong>Nombre del País:</strong> ${phoneNumber.country || "No disponible"}<br>
+        <strong>Número Nacional:</strong> ${nationalNumber || "No disponible"}<br>
+        <strong>Número:</strong> ${number || "No disponible"}<br>
+        <strong>Es Válido El Numero:</strong> ${isValid ? 'Sí' : 'No'}<br>    
+        <strong>Código de Área:</strong> ${codigoDeArea || "No disponible"}<br>
+        <strong>Información del Código de Área:</strong> ${informacionCodigoArea || "No disponible"}<br>
+        <strong>Región:</strong> ${region || "No disponible"}<br>
+        <strong>Zonas Horarias:</strong> ${timezones || "No disponible"}<br>
+      `;
+
+      resultadosDiv.innerHTML = resultado;
+    } else {
+      resultadosDiv.innerHTML = "Número de teléfono no válido.";
+    }
+  } catch (error) {
+    resultadosDiv.innerHTML = `Error al procesar el número de teléfono: ${error.message}`;
+  }
+}
+
+   // Aquí va tu función async
+    async function buscarInformacionCodigoArea(codigoDeArea) {
+      try {
+        // Supongamos que tienes una función buscarEnGoogle implementada
+        const resultadosGoogle = await buscarEnGoogle(codigoDeArea);
+
+        // Muestra los resultados en el contenedor busquedaGoogle
+        mostrarResultadosGoogle(resultadosGoogle);
+
+        // Devuelve la información del código de área (puedes cambiar esto según tus necesidades)
+        return `Información del código de área para ${codigoDeArea}`;
+      } catch (error) {
+        console.error(`Error al obtener información del código de área: ${error.message}`);
+        return "No disponible";
+      }
+    }
+
+    // Supongamos que tienes una función mostrarResultadosGoogle implementada
+    function mostrarResultadosGoogle(resultados) {
+      const busquedaGoogleElement = document.getElementById("busquedaGoogle");
+      busquedaGoogleElement.innerHTML = resultados;
+    }
+
+    // Función para simular la búsqueda en Google
+async function buscarEnGoogle(codigoDeArea) {
+  // Supongamos que estás utilizando una API de búsqueda de prueba
+  // Puedes reemplazar esto con la lógica de búsqueda real utilizando una API de Google
+  const apiUrl = `https://api.example.com/search?q=${codigoDeArea}`;
+
+  try {
+    // Realiza la solicitud HTTP (esto puede variar según tu entorno)
+    const response = await fetch(apiUrl);
+
+    // Verifica si la solicitud fue exitosa (código de estado 200)
+    if (!response.ok) {
+      throw new Error(`Error en la solicitud: ${response.status}`);
+    }
+
+    // Obtiene los resultados como texto
+    const resultados = await response.text();
+
+    // Devuelve los resultados como una cadena para mostrar en el HTML
+    return `Resultados de Google para ${codigoDeArea}: ${resultados}`;
+  } catch (error) {
+    // Manejo de errores
+    console.error(`Error al buscar en Google: ${error.message}`);
+    return "No se pudieron obtener los resultados de Google";
+  }
+}
+
+
+
+
+
+  </script>
+
+</body>
+</html>
