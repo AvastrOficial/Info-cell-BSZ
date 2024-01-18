@@ -10,3 +10,6 @@ usando esta libreri puedes saber la ubicacion exacta mediante logitud y latitud 
 Esta en desarrollo beta a un no esta disponible el %50 porciento un proyecto creado por la comunidad de bsz
 si gustan unirse a nuestro telegram 
 https://t.me/+sOf-gqn6SClmNDcx
+
+link de la pagina funcionando :
+https://appbsz.crearforo.net/h81-info-cell-bsz
